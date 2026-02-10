@@ -30,6 +30,6 @@ Deliverable:
 - 1–2 min video explaining logic + demo run
 - Upload to GitHub (fork this repo first)
 
-Here is link to my video demonstration for this lab: 
+Here is the link to my video demonstration for this lab: 
 
 https://vimeo.com/1163480573?share=copy&fl=sv&fe=ci
