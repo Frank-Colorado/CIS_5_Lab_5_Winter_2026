@@ -22,6 +22,35 @@ struct BusinessCard {
 
 };
 
+// Function that prints all the information about the companies
+// This function takes 2 parameters:
+// 1. An array of BusinessCard structures
+// 2. The size of the array
+void printCompanyInfo(BusinessCard cards[], int size) {
+	// I use setw and left to format the output into a nice table
+	// First I print the header for the table of company information
+	cout << setw(20) << left << "Name"
+		<< setw(20) << left << "Address"
+		<< setw(15) << left << "Phone Number"
+		<< setw(15) << left << "Working Hours"
+		<< setw(20) << left << "Representative"
+		<< setw(12) << right << "Quoted Price" << endl;
+	// Use setfill and setw to create a separator line under the header
+	cout << setfill('-') << setw(102) << "" << setfill(' ') << endl;
+
+	// Then I loop through the cards array and print up each companies info into the table
+	for (int i = 0; i < size; ++i) {
+		cout << setw(20) << left << cards[i].name
+			<< setw(20) << left << cards[i].address
+			<< setw(15) << left << cards[i].phoneNumber
+			<< setw(15) << left << cards[i].workingHours
+			<< setw(20) << left << cards[i].representative
+			<< setw(12) << right << fixed << setprecision(2) << cards[i].quotedPrice
+			<< endl;
+	}
+
+}
+
 // Function that loops through the bussiness cards and prints the cheapest company's information
 // This function takes 2 parameters:
 // 1. An array of BusinessCard structures
@@ -45,7 +74,8 @@ void printCheapest(BusinessCard cards[], int size) {
 	}
 	
 	// We then print the name of the company that offers the cheapest price and the price itself
-	cout << cards[minIndex].name << " offers the cheapest price of $" << fixed << setprecision(2) << cards[minIndex].quotedPrice << endl;
+	// 
+	cout << "\n" << cards[minIndex].name << " offers the cheapest price of $" << fixed << setprecision(2) << cards[minIndex].quotedPrice << endl;
 }
 
 
@@ -73,6 +103,10 @@ int main () {
 	BusinessCard cards[SIZE] = { company1, company2, company3, company4, company5 };
 
 	// Here I call a function that will loop through the business cards and print up all the inforation about the companies
+	printCompanyInfo(cards, SIZE);
+
+	// Here I call a function that will loop through the cards and find the company that offers the cheapest price and print its name and the price
+	printCheapest(cards, SIZE);
 
 
 	return 0;
